@@ -29,7 +29,11 @@ class FirstActivity : AppCompatActivity() {
             }else {
                 titulo.text = getString(R.string.hello_name,usuario.text)
             }
-            startActivity(Intent(this,SecondActivity::class.java))
+
+            val intent = Intent(this, SecondActivity::class.java).apply {
+                putExtra(SecondActivity.USER_NAME_ARG, usuario.text.toString())
+            }
+            startActivity(intent)
         }
     }
 
