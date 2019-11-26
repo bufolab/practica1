@@ -21,10 +21,12 @@ class FirstActivity : AppCompatActivity() {
         val titulo = this.findViewById<TextView>(R.id.titulo)
         val usuario = this.findViewById<EditText>(R.id.editUsuario)
         boton.setOnClickListener {
-            val intent = Intent(this,SecondActivity::class.java).apply {
-                putExtra(SecondActivity.USER_NAME_ARG,usuario.text.toString())
+            val nombreUsuario = usuario.text
+            if(nombreUsuario.isBlank()) {
+                titulo.text = getString(R.string.ops_esta_vacio_escribe_algo_porfavor)
+            }else {
+                titulo.text = getString(R.string.hello_name,usuario.text)
             }
-            this.startActivity(intent)
         }
     }
 

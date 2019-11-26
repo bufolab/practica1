@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.ActivityLevelTheme">
+        <item name="colorAccent">@color/french_blue</item>
+    </style>
+
+    <style name="TituloPrincipal" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
+
+
 </resources>
