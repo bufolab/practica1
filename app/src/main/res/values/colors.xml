@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">@color/french_dark_blue</color>
+    <color name="colorPrimaryDark">@color/blue_gray</color>
     <color name="colorAccent">#D81B60</color>
     <color name="french_blue">#1B76D8</color>
+    <color name="french_dark_blue">#154A7E</color>
+    <color name="blue_gray">#102E4B</color>
 </resources>

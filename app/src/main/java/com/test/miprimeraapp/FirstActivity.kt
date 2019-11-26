@@ -7,6 +7,8 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 
 class FirstActivity : AppCompatActivity() {
 
@@ -17,12 +19,12 @@ class FirstActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.e(TAG,"Hola estoy en onCreate")
 
-        val boton =this.findViewById<Button>(R.id.botonEntrar)
+        val boton =this.findViewById<MaterialButton>(R.id.botonEntrar)
         val titulo = this.findViewById<TextView>(R.id.titulo)
-        val usuario = this.findViewById<EditText>(R.id.editUsuario)
+        val usuario = this.findViewById<TextInputEditText>(R.id.editUsuario)
         boton.setOnClickListener {
             val nombreUsuario = usuario.text
-            if(nombreUsuario.isBlank()) {
+            if(nombreUsuario?.isBlank() == true) {
                 titulo.text = getString(R.string.ops_esta_vacio_escribe_algo_porfavor)
             }else {
                 titulo.text = getString(R.string.hello_name,usuario.text)
