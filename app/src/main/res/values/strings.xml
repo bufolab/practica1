@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Shopper</string>
-    <string name="welcome">welcome</string>
     <string name="entrar">entrar</string>
     <string name="usuario">Usuario</string>
     <string name="hello_sjd">Hello SJD!</string>
     <string name="ops_esta_vacio_escribe_algo_porfavor">Ops, está vacio, escribe algo por favor</string>
     <string name="hello_name">Hello %1$s</string>
+    <string name="welcome_name">Welcome %1$s</string>
 </resources>
