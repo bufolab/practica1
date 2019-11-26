@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_second.*
 
@@ -40,8 +42,8 @@ class SecondActivity : AppCompatActivity() {
             MemberModel(5,"Pere", "Bou Sala"),
             MemberModel(6,"Laura", "Bou Sala")
         )
-        familyListView.adapter =
-            MemberAdapter(this,myList)
+        familyListView.adapter = MemberAdapter(myList)
+        familyListView.layoutManager = LinearLayoutManager(this)
     }
 
     private fun retrieveArguments(intent: Intent) {

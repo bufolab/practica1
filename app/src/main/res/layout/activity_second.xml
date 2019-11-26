@@ -22,16 +22,18 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="20dp"
+        tools:src="@tools:sample/backgrounds/scenic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameView" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/familyListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        tools:listitem="@layout/member_item_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

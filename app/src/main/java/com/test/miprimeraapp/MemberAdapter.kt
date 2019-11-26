@@ -7,34 +7,38 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import androidx.appcompat.view.menu.MenuView
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.member_item_layout.view.*
 import org.w3c.dom.Text
 
-class MemberAdapter(val context:Context,val listMembers:List<MemberModel>) :BaseAdapter() {
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var view = convertView
-        if (view == null) {
-            val mInflater = LayoutInflater.from(context)
-             view = mInflater.inflate(
-                R.layout.member_item_layout,
-                parent, false
-            )
-        }
+class MemberAdapter(var listMembers:List<MemberModel>) :RecyclerView.Adapter<MemberViewHolder>() {
 
-        val item = getItem(position) as MemberModel
-        val nameView =  view?.findViewById<TextView>(R.id.name)
-        val surnameView =  view?.findViewById<TextView>(R.id.surname)
-        nameView?.text = item.nombre
-        surnameView?.text = item.apellido
-        return view!!
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemberViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.member_item_layout,
+            parent, false)
+        return MemberViewHolder(view)
     }
 
-    override fun getItem(position: Int): Any {
-       return  listMembers[position]
+    override fun onBindViewHolder(holder: MemberViewHolder, position: Int) {
+        val memberModel = listMembers[position]
+        holder.name.text = memberModel.nombre
+        holder.surname.text = memberModel.nombre
+        Glide.with(holder.photo.context).load(memberModel.photo).into(holder.photo)
     }
 
     override fun getItemId(position: Int): Long {
         return  listMembers[position].id
     }
 
-    override fun getCount(): Int = listMembers.size
+    override fun getItemCount(): Int = listMembers.size
+
+
 }
+
+class MemberViewHolder(view:View): RecyclerView.ViewHolder(view) {
+   val name = view.name
+   val surname = view.surname
+    val photo = view.photoImage
+}
+
