@@ -29,6 +29,7 @@ class FirstActivity : AppCompatActivity() {
             }else {
                 titulo.text = getString(R.string.hello_name,usuario.text)
             }
+            startActivity(Intent(this,SecondActivity::class.java))
         }
     }
 

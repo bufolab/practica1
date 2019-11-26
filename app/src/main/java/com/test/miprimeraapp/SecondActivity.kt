@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_second.*
 
 
@@ -13,7 +14,7 @@ class SecondActivity : AppCompatActivity() {
     companion object{
        val USER_NAME_ARG = "USER_NAME"
     }
-    lateinit var userName: String
+    var userName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +22,13 @@ class SecondActivity : AppCompatActivity() {
         (supportActionBar?.setDisplayHomeAsUpEnabled(true))
 
         retrieveArguments(intent)
-        userNameView.text = getString(R.string.welcome_name,userName)
+        if(userName != null) {
+            userNameView.text = getString(R.string.welcome_name, userName)
+        }
+
+        Glide.with(this)
+            .load("https://picsum.photos/id/204/200/300")
+            .into(logoImage)
     }
 
     private fun retrieveArguments(intent: Intent) {
