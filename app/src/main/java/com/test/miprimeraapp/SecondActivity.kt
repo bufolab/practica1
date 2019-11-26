@@ -12,9 +12,10 @@ import kotlinx.android.synthetic.main.activity_second.*
 class SecondActivity : AppCompatActivity() {
 
 
-    companion object{
-       val USER_NAME_ARG = "USER_NAME"
+    companion object {
+        val USER_NAME_ARG = "USER_NAME"
     }
+
     var userName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +24,7 @@ class SecondActivity : AppCompatActivity() {
         (supportActionBar?.setDisplayHomeAsUpEnabled(true))
 
         retrieveArguments(intent)
-        if(userName != null) {
+        if (userName != null) {
             userNameView.text = getString(R.string.welcome_name, userName)
         }
 
@@ -31,12 +32,20 @@ class SecondActivity : AppCompatActivity() {
             .load("https://picsum.photos/id/204/200/200")
             .into(logoImage)
 
-        val myList = listOf("Abuela","Abuelo","Padre","Madre","Hijo","Hija")
-        familyListView.adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,myList)
+        val myList = listOf(
+            MemberModel(1,"Maria", "Gomez"),
+            MemberModel(2,"Joan", "Sala"),
+            MemberModel(3,"Teresa", "Sala Gomez"),
+            MemberModel(4,"Ramon", "Bou Marti"),
+            MemberModel(5,"Pere", "Bou Sala"),
+            MemberModel(6,"Laura", "Bou Sala")
+        )
+        familyListView.adapter =
+            MemberAdapter(this,myList)
     }
 
     private fun retrieveArguments(intent: Intent) {
-         userName = intent.getStringExtra(USER_NAME_ARG)
+        userName = intent.getStringExtra(USER_NAME_ARG)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
