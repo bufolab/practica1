@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/surname"
         app:layout_constraintStart_toEndOf="@+id/photoImage"
         app:layout_constraintTop_toTopOf="@+id/photoImage"
         tools:text="Nombre Ejemplo" />
@@ -34,9 +34,17 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/photoImage"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/eliminarButon"
         app:layout_constraintStart_toEndOf="@+id/photoImage"
         app:layout_constraintTop_toBottomOf="@+id/name"
         tools:text="Apellido Ejemplo" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/eliminarButon"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
