@@ -24,7 +24,9 @@ class FirstFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         botonEntrar.setOnClickListener {
-            view.findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+            val actionFirstFragmentToSecondFragment =
+                FirstFragmentDirections.actionFirstFragmentToSecondFragment(editUsuario.text.toString())
+            view.findNavController().navigate(actionFirstFragmentToSecondFragment)
         }
 
 

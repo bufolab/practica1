@@ -4,7 +4,10 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 android {
+
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.test.miprimeraapp"
@@ -13,6 +16,14 @@ android {
         versionCode 1
         versionName "1.0-TEST"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
     buildTypes {
         release {

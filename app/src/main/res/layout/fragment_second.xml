@@ -4,10 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="HELLO"/>
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        tools:text="HELLO"/>
 </LinearLayout>
