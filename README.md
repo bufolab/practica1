@@ -1,5 +1,3 @@
-**
-
 ## Practicas Android
 
 Cada una de las ramas del repositorio representa una funcionalidad distinta.
