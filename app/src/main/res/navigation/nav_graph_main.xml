@@ -4,7 +4,7 @@
     app:startDestination="@id/firstFragment">
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.test.miprimeraapp.FirstFragment"
+        android:name="com.test.miprimeraapp.ui.main.FirstFragment"
         android:label="FirstFragment" >
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.test.miprimeraapp.SecondFragment"
+        android:name="com.test.miprimeraapp.ui.main.SecondFragment"
         android:label="SecondFragment" >
         <argument
             android:name="USER_NAME"
