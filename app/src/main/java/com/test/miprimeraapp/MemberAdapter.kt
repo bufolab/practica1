@@ -23,7 +23,7 @@ class MemberAdapter(var listMembers:List<MemberModel>) :RecyclerView.Adapter<Mem
     override fun onBindViewHolder(holder: MemberViewHolder, position: Int) {
         val memberModel = listMembers[position]
         holder.name.text = memberModel.nombre
-        holder.surname.text = memberModel.nombre
+        holder.surname.text = memberModel.apellido
         Glide.with(holder.photo.context).load(memberModel.photo).into(holder.photo)
     }
 

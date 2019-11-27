@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/userNameView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/familyListView"
+        android:id="@+id/familyRecylerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"

@@ -53,8 +53,8 @@ class SecondActivity : AppCompatActivity() {
              myList = newList
          }
 
-        familyListView.adapter =memberEfficientAdapter
-        familyListView.layoutManager = LinearLayoutManager(this)
+        familyRecylerView.adapter =memberEfficientAdapter
+        familyRecylerView.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onResume() {
