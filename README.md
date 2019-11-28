@@ -31,5 +31,5 @@ Muestra como devolver un resultado al cerrar una Activity
 Muestra como navegar entre Fragments con Navigation Jetpack
 
 [**navigation_jetpack_arguments**](https://github.com/bufolab/practica1/tree/navigation_jetpack_arguments)
-Muestra como navegar entre Fragments con Navigation Jetpack pasando argumentos en tres Fragments
+Muestra como navegar entre Fragments con Navigation Jetpack pasando argumentos
 
