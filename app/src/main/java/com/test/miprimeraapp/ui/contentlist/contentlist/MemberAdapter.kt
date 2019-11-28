@@ -3,6 +3,7 @@ package com.test.miprimeraapp.ui.contentlist.contentlist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.test.miprimeraapp.R
@@ -10,7 +11,7 @@ import com.test.miprimeraapp.model.MemberModel
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.member_item_layout.view.*
 
-class MemberEfficientAdapter(val eliminarElementoListener: (id:Long) -> Unit) : RecyclerView.Adapter<MemberEfficientAdapter.MemberModelViewholder>() {
+class MemberEfficientAdapter() : RecyclerView.Adapter<MemberEfficientAdapter.MemberModelViewholder>() {
 
     var data: List<MemberModel> = emptyList()
         set(newList) {
@@ -43,9 +44,7 @@ class MemberEfficientAdapter(val eliminarElementoListener: (id:Long) -> Unit) : 
         fun bind(item: MemberModel) = with(itemView) {
             name.text = item.name
             surname.text = item.surname
-            eliminarButon.setOnClickListener {
-                eliminarElementoListener(item.id)
-            }
+            eliminarButon.isVisible = false
         }
     }
 }

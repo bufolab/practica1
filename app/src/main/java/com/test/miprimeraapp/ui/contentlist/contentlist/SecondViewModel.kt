@@ -11,11 +11,11 @@ import kotlinx.coroutines.launch
 
 class SecondViewModel : ViewModel() {
     private val _state = MutableLiveData<UISecondState>()
-    val state :LiveData<UISecondState>
-    get() = _state
+    val state: LiveData<UISecondState>
+        get() = _state
 
-    fun onLoadMembers(amount:String){
-        viewModelScope.launch(IO){
+    fun onLoadMembers(amount: String) {
+        viewModelScope.launch(IO) {
             //aqui empezamos a hacer nuestro trabajo en background gracias a lo corrutina
             //y además utilizando el pool IO ( si no, seguiriamos en el main thread!)
 
@@ -24,14 +24,20 @@ class SecondViewModel : ViewModel() {
             //o un calculo intenso
             _state.postValue(UISecondState.Loading)
 
-            val members = MembersRepository.getMembers(amount.toInt())
+            val amount = amount.toIntOrNull() ?: 1
+
+            val members = if (amount > 1) {
+                MembersRepository.getMembers()
+            } else {
+                listOf(MembersRepository.getAMember())
+            }
 
             _state.postValue(UISecondState.MembersResult(members))
         }
     }
 }
 
-sealed class UISecondState{
-    object Loading: UISecondState()
-    class  MembersResult(val members: List<MemberModel>): UISecondState()
+sealed class UISecondState {
+    object Loading : UISecondState()
+    class MembersResult(val members: List<MemberModel>) : UISecondState()
 }

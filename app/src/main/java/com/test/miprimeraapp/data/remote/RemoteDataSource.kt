@@ -36,11 +36,11 @@ class RemoteDataSource {
 
 
     suspend fun getAMember(): MemberModel {
-        return service.getUser().toMemberModel()
+        return service.getMember().toMemberModel()
     }
 
     suspend fun getMembers(amount: Int): List<MemberModel> {
-        return service.getUsers(amount).map { it.toMemberModel() }
+        return service.getMembers(amount).map { it.toMemberModel() }
     }
 
 
