@@ -1,8 +1,8 @@
-package com.test.miprimeraapp
+package com.test.miprimeraapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.test.miprimeraapp.ui.main.FirstFragment
+import com.test.miprimeraapp.R
 
 class MainActivity : AppCompatActivity() {
 

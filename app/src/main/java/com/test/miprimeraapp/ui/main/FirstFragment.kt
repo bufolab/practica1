@@ -11,7 +11,6 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.test.miprimeraapp.R
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_first.*
 
 class FirstFragment : Fragment() {
@@ -20,13 +19,13 @@ class FirstFragment : Fragment() {
         fun newInstance() = FirstFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: FirstViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(FirstViewModel::class.java)
         return inflater.inflate(R.layout.fragment_first,container,false)
     }
 
@@ -34,24 +33,12 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         botonEntrar.setOnClickListener {
-            viewModel.onLogin(editUsuario.text.toString())
+            val actionFirstFragmentToSecondFragment =
+                FirstFragmentDirections.actionFirstFragmentToSecondFragment(amountEditText.text.toString())
+            view.findNavController().navigate(actionFirstFragmentToSecondFragment)
         }
-
-        viewModel.state.observe(this, Observer { event->
-
-            when(event){
-                is UIMainState.Loading ->{
-                    loader.isVisible = true
-                }
-                is UIMainState.UserLoginResult->{
-                    loader.isVisible = false
-                    Toast.makeText(requireContext(),
-                        "Just for testing, is logged result: ${event.success}",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
-        })
 
         super.onViewCreated(view, savedInstanceState)
     }
+
 }

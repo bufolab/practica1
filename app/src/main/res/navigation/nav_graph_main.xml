@@ -19,7 +19,7 @@
         android:name="com.test.miprimeraapp.ui.contentlist.contentlist.SecondFragment"
         android:label="SecondFragment" >
         <argument
-            android:name="USER_NAME"
+            android:name="AMOUNT"
             app:argType="string" />
     </fragment>
 </navigation>
