@@ -17,7 +17,7 @@ android {
         versionName "1.0-TEST"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "baseUrl", '"https://uinames.com/api/"'
+        buildConfigField "String", "baseUrl", '"https://jsonplaceholder.typicode.com/"'
     }
     compileOptions {
         sourceCompatibility = 1.8

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ejemplo con Servidor</string>
+    <string name="app_name">My App</string>
     <string name="listado">Listado</string>
     <string name="entrar">entrar</string>
     <string name="numero_de_usuarios">Numero de usuarios</string>

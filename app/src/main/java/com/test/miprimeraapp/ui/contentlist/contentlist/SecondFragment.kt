@@ -36,7 +36,9 @@ class SecondFragment : Fragment(){
 
         //aqui hacemos las operaciones sobre nuestra vista, ya que ahora está inflada
 
-        memberEfficientAdapter = MemberEfficientAdapter()
+        memberEfficientAdapter = MemberEfficientAdapter{
+            viewModel.deleteItem(it)
+        }
 
         familyRecylerView.adapter =memberEfficientAdapter
         val linearLayoutManager = LinearLayoutManager(requireContext())
@@ -54,9 +56,18 @@ class SecondFragment : Fragment(){
                 is UISecondState.Loading ->{
                     loader.isVisible = true
                 }
-                is UISecondState.MembersResult->{
+                is UISecondState.GetPostResult->{
                     loader.isVisible = false
-                    memberEfficientAdapter.data = event.members
+                    memberEfficientAdapter.data = event.posts
+                }
+                is UISecondState.DeletePostResult->{
+
+                    if(event.success){
+                            viewModel.onLoadMembers(args.AMOUNT)
+                    }else{
+                        loader.isVisible = false
+                        Toast.makeText(requireContext(),"Error borrando elemento",Toast.LENGTH_LONG).show()
+                    }
                 }
             }
         })

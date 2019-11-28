@@ -7,13 +7,14 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.test.miprimeraapp.R
-import com.test.miprimeraapp.model.MemberModel
+import com.test.miprimeraapp.model.PostModel
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.member_item_layout.view.*
+import kotlin.system.measureNanoTime
 
-class MemberEfficientAdapter() : RecyclerView.Adapter<MemberEfficientAdapter.MemberModelViewholder>() {
+class MemberEfficientAdapter(val eliminarListener:(id:Long)->Unit) : RecyclerView.Adapter<MemberEfficientAdapter.MemberModelViewholder>() {
 
-    var data: List<MemberModel> = emptyList()
+    var data: List<PostModel> = emptyList()
         set(newList) {
             val calculateDiff = DiffUtil.calculateDiff(
                 MemberModelDiffCallback(
@@ -41,15 +42,17 @@ class MemberEfficientAdapter() : RecyclerView.Adapter<MemberEfficientAdapter.Mem
     inner class MemberModelViewholder(override val containerView: View) :
         RecyclerView.ViewHolder(containerView),
         LayoutContainer {
-        fun bind(item: MemberModel) = with(itemView) {
-            name.text = item.name
-            surname.text = item.surname
-            eliminarButon.isVisible = false
+        fun bind(item: PostModel) = with(itemView) {
+            title.text = item.title
+            body.text = item.body
+            eliminarButon.setOnClickListener {
+                eliminarListener(item.id)
+            }
         }
     }
 }
 
-class MemberModelDiffCallback(val oldList: List<MemberModel>, val newList: List<MemberModel>) :
+class MemberModelDiffCallback(val oldList: List<PostModel>, val newList: List<PostModel>) :
     DiffUtil.Callback() {
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return oldList[oldItemPosition].id == newList[newItemPosition].id

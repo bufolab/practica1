@@ -1,7 +1,7 @@
 package com.test.miprimeraapp.data.remote
 
 import com.test.miprimeraapp.BuildConfig
-import com.test.miprimeraapp.model.MemberModel
+import com.test.miprimeraapp.model.PostModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -10,7 +10,7 @@ import kotlin.random.Random
 
 class RemoteDataSource {
 
-    var service: MemberService
+    var service: JsonPlaceholderService
 
     init {
         //añadimos logging
@@ -31,21 +31,24 @@ class RemoteDataSource {
             .client(client)
             .addConverterFactory(GsonConverterFactory.create()) //queremos que automaticamente parse los json
             .build()
-        service = retrofit.create(MemberService::class.java)
+        service = retrofit.create(JsonPlaceholderService::class.java)
     }
 
-
-    suspend fun getAMember(): MemberModel {
-        return service.getMember().toMemberModel()
+    suspend fun getPost(id:Long): PostModel {
+        return service.getPost(id).toPostModel()
     }
 
-    suspend fun getMembers(amount: Int): List<MemberModel> {
-        return service.getMembers(amount).map { it.toMemberModel() }
+    suspend fun getPosts(): List<PostModel> {
+        return service.getPosts().map { it.toPostModel() }
+    }
+
+    suspend fun deletePost(id: Long) {
+        return service.deletePost(id)
     }
 
 
 }
 
-fun UiName.toMemberModel(): MemberModel {
-    return MemberModel(Random.nextLong(), this.name, this.surname)
+fun PostResponse.toPostModel(): PostModel {
+    return PostModel(Random.nextLong(), this.title, this.body)
 }
