@@ -1,4 +1,4 @@
-package com.test.miprimeraapp.ui.main
+package com.test.miprimeraapp.ui.contentlist.contentlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +14,12 @@ class MemberEfficientAdapter(val eliminarElementoListener: (id:Long) -> Unit) : 
 
     var data: List<MemberModel> = emptyList()
         set(newList) {
-            val calculateDiff = DiffUtil.calculateDiff(MemberModelDiffCallback(field, newList))
+            val calculateDiff = DiffUtil.calculateDiff(
+                MemberModelDiffCallback(
+                    field,
+                    newList
+                )
+            )
             calculateDiff.dispatchUpdatesTo(this)
             field = newList
         }

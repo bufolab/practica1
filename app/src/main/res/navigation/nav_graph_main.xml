@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.test.miprimeraapp.ui.main.SecondFragment"
+        android:name="com.test.miprimeraapp.ui.contentlist.contentlist.SecondFragment"
         android:label="SecondFragment" >
         <argument
             android:name="USER_NAME"

@@ -1,4 +1,4 @@
-package com.test.miprimeraapp.ui.main
+package com.test.miprimeraapp.ui.contentlist.contentlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.test.miprimeraapp.R
+import com.test.miprimeraapp.ui.main.SecondFragmentArgs
 import kotlinx.android.synthetic.main.fragment_second.*
 
 class SecondFragment : Fragment(){
