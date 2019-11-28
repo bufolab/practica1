@@ -50,5 +50,5 @@ class RemoteDataSource {
 }
 
 fun PostResponse.toPostModel(): PostModel {
-    return PostModel(Random.nextLong(), this.title, this.body)
+    return PostModel(this.id, this.title, this.body)
 }

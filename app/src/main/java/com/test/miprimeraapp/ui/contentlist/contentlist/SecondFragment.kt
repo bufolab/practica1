@@ -63,7 +63,7 @@ class SecondFragment : Fragment(){
                 is UISecondState.DeletePostResult->{
 
                     if(event.success){
-                            viewModel.onLoadMembers(args.AMOUNT)
+                            viewModel.onLoadPosts(args.AMOUNT)
                     }else{
                         loader.isVisible = false
                         Toast.makeText(requireContext(),"Error borrando elemento",Toast.LENGTH_LONG).show()
@@ -72,7 +72,7 @@ class SecondFragment : Fragment(){
             }
         })
 
-        viewModel.onLoadMembers(args.AMOUNT)
+        viewModel.onLoadPosts(args.AMOUNT)
         super.onViewCreated(view, savedInstanceState)
     }
 

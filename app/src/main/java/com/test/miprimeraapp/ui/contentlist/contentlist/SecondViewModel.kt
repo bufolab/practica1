@@ -15,7 +15,7 @@ class SecondViewModel : ViewModel() {
     val state: LiveData<UISecondState>
         get() = _state
 
-    fun onLoadMembers(paramId: String) {
+    fun onLoadPosts(paramId: String) {
         viewModelScope.launch(IO){
             //aqui empezamos a hacer nuestro trabajo en background gracias a lo corrutina
             //y además utilizando el pool IO ( si no, seguiriamos en el main thread!)
@@ -25,12 +25,12 @@ class SecondViewModel : ViewModel() {
             //o un calculo intenso
             _state.postValue(UISecondState.Loading)
 
-            val id = paramId.toLongOrNull() ?: 1
+            val id = paramId.toLongOrNull() ?: 10
 
             val posts = if (id > 1) {
                 PostRepository.getPosts()
             } else {
-                listOf(PostRepository.getPost(id))
+                PostRepository.getPost(id)?.run { listOf(this) }?: emptyList()
             }
 
             _state.postValue(UISecondState.GetPostResult(posts))
