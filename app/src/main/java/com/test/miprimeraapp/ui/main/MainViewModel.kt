@@ -8,6 +8,10 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
+/**
+ * No utilizamos el viewModel en este ejemplo.
+ * El fragment navega directamente al segundo Fragment.
+ */
 class FirstViewModel : ViewModel() {
     private val _state = MutableLiveData<UIFirstState>()
     val state :LiveData<UIFirstState>
