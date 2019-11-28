@@ -5,23 +5,36 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_sjd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
-        android:id="@+id/editUsuario"
+        android:id="@+id/preferencia1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/usuario"/>
-    <Button
-        android:id="@+id/botonEntrar"
+        android:layout_margin="10dp"
+        android:hint="@string/nombre"/>
+   <Switch
+       android:id="@+id/preferencia2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_margin="10dp"
+       android:text="@string/preferncia_switch"/>
+
+    <CheckBox
+        android:id="@+id/preferencia3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/entrar"/>
+        android:layout_margin="10dp"
+        android:text="@string/preferencia_checkbox"/>
+
+    <Button
+        android:id="@+id/guardarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/guardar"/>
+
+    <Button
+        android:id="@+id/eliminarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/elminar"/>
 </LinearLayout>
