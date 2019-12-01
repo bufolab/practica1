@@ -60,7 +60,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
 
     //inyeccion de dependencias
-    implementation 'com.google.dagger:dagger:2.15'
-    kapt 'com.google.dagger:dagger-compiler:2.15'
-    kapt 'com.google.dagger:dagger-android-processor:2.15'
+    // Koin for Kotlin apps
+    implementation 'org.koin:koin-core:2.0.1'
+    implementation "org.koin:koin-androidx-scope:2.0.1"
+    // Koin AndroidX ViewModel features
+    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
+    implementation "org.koin:koin-androidx-ext:2.0.1"
 }

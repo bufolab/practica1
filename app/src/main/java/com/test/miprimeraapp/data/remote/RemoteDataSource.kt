@@ -7,10 +7,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Inject
 import kotlin.random.Random
 
-class RemoteDataSource @Inject constructor(var service: JsonPlaceholderService):RemoteSource{
+class RemoteDataSource constructor(var service: JsonPlaceholderService):RemoteSource{
 
     override suspend fun getPost(id:Long): PostModel {
         return service.getPost(id).toPostModel()

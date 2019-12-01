@@ -13,12 +13,12 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_second.*
 import androidx.recyclerview.widget.DividerItemDecoration
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class SecondFragment : Fragment(){
 
-    private lateinit var viewModel: SecondViewModel
+    private val viewModel: SecondViewModel by viewModel()
     private lateinit var memberEfficientAdapter:MemberEfficientAdapter
     val args: SecondFragmentArgs by navArgs()
 
@@ -27,7 +27,7 @@ class SecondFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(SecondViewModel::class.java)
+        //viewModel = ViewModelProviders.of(this).get(SecondViewModel::class.java) // not needed anymore
         return inflater.inflate(com.test.miprimeraapp.R.layout.fragment_second,container,false)
     }
 

@@ -1,17 +1,15 @@
 package com.test.miprimeraapp.data
 
 import com.test.miprimeraapp.MiPrimeraAppApplication
-import com.test.miprimeraapp.dagger.MiPrimeraAppComponent
 import com.test.miprimeraapp.data.local.LocalDataSource
 import com.test.miprimeraapp.data.remote.RemoteDataSource
 import com.test.miprimeraapp.domain.DataRepository
 import com.test.miprimeraapp.domain.LocalSource
 import com.test.miprimeraapp.domain.RemoteSource
 import com.test.miprimeraapp.model.PostModel
-import javax.inject.Inject
 
-class PostRepository @Inject constructor( var remoteDataSource: RemoteSource,
-                                          var localDataSource: LocalSource): DataRepository {
+class PostRepository  constructor(private var remoteDataSource: RemoteSource,
+                                  private var localDataSource: LocalSource): DataRepository {
 
 
     override suspend fun getPost(id: Long): PostModel? {

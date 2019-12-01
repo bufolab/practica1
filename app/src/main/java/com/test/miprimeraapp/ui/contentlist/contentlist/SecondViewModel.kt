@@ -4,26 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.test.miprimeraapp.MiPrimeraAppApplication
 import com.test.miprimeraapp.data.PostRepository
 import com.test.miprimeraapp.domain.DataRepository
 import com.test.miprimeraapp.model.PostModel
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import javax.inject.Inject
 
-class SecondViewModel : ViewModel() {
+class SecondViewModel( private var repository:DataRepository ) : ViewModel() {
     private val _state = MutableLiveData<UISecondState>()
     val state: LiveData<UISecondState>
         get() = _state
 
-    @Inject
-   lateinit var repository:DataRepository
-
-    init {
-        MiPrimeraAppApplication.component.inject(this)
-    }
     fun onLoadPosts(paramId: String) {
         viewModelScope.launch(IO){
             //aqui empezamos a hacer nuestro trabajo en background gracias a lo corrutina

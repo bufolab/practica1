@@ -2,13 +2,12 @@ package com.test.miprimeraapp.data.local
 
 import com.test.miprimeraapp.domain.LocalSource
 import com.test.miprimeraapp.model.PostModel
-import javax.inject.Inject
 
 /**
  * Clase simple que hace de cache.
  * La implementacion podria persistencia en base de datos.
  */
-class LocalDataSource @Inject constructor():LocalSource{
+class LocalDataSource:LocalSource{
 
     private var cachePost:MutableList<PostModel> = mutableListOf()
 
